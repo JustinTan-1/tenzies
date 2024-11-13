@@ -8,7 +8,7 @@ function App() {
     const randomNums = []
     for (let i = 0; i<10; i++) {
       let num = Math.ceil(Math.random() * 6)
-      randomNums.push({value:num,isHeld:false})
+      randomNums.push({value:num,isHeld:true})
     }
     return randomNums
   }
@@ -18,7 +18,7 @@ function App() {
   }
 
   const diceNums = dice.map((die) => {
-    return ( <Dice value={die.value}/>)
+    return ( <Dice value={die.value} toggled={die.isHeld}/>)
   })
   return (
     <main className="main">

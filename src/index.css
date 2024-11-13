@@ -58,3 +58,12 @@
   border: none;
   box-shadow: 0px 3.2px 7.68px 0px rgba(0, 0, 0, 0.18);
 }
+
+.toggled {
+  background: rgba(89, 227, 145, 1);
+
+}
+
+.untoggled {
+  background: rgba(255, 255, 255, 1);
+}
