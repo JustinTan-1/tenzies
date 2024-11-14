@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Dice(props) {
     return (
-        <div className={`dice ${props.toggled ? "toggled" :"untoggled"}`}>
+        <div className={`dice ${props.isToggled ? "toggled" :"untoggled"}`} onClick={props.toggle}>
             {props.value}
         </div>
     )
