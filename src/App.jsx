@@ -9,14 +9,18 @@ function App() {
   function allNewDice() {
     const randomNums = []
     for (let i = 0; i<10; i++) {
-      let num = Math.ceil(Math.random() * 6)
-      randomNums.push({value:num,isHeld:false,id:nanoid()})
+      randomNums.push(generateDie())
     }
     return randomNums
   }
+
+  function generateDie() {
+    let num = Math.ceil(Math.random() * 6)
+    return {value:num,isHeld:false,id:nanoid()}
+  }
   
   function handleRoll() {
-    setDice(allNewDice())
+    setDice((oldDice) => oldDice.map((die) => die.isHeld ? {...die} : generateDie()))
   }
 
   function holdDice(id) {
