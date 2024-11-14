@@ -5,6 +5,21 @@ import { nanoid } from 'nanoid'
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice())
+  const [tenzies, setTenzies] = React.useState(false)
+
+  React.useEffect(() => {
+    let comparisonValue = dice[0].value
+    let hasWon = true
+    for (let i=0; i<dice.length; i++) {
+      if (!dice[i].isHeld || !comparisonValue === dice[i].value) {
+        hasWon = false
+      }
+    }
+    if (hasWon) {
+      setTenzies(true)
+      console.log("WONN")
+    }
+  }, [dice])
 
   function allNewDice() {
     const randomNums = []
@@ -32,6 +47,7 @@ function App() {
   return (
     <main className="main">
       <div className="main--container">
+        <h1>Tenzies</h1>
         <div className="dice--container">
           {diceNums}
         </div>
